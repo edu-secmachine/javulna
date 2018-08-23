@@ -7,18 +7,22 @@ package com.kalavit.javulna.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author peti
  */
 @Entity
+@Table(name = "MESSAGE")
 public class Message extends BaseEntity{
     @Lob
+    @Column(name = "TEXTMESSAGE")
     private String message;
     
     @ManyToOne
