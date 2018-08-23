@@ -7,9 +7,7 @@ package com.kalavit.javulna.services;
 
 import com.kalavit.javulna.model.User;
 import com.kalavit.javulna.services.autodao.UserAutoDao;
-import java.io.IOException;
 import java.io.StringReader;
-import java.util.logging.Level;
 import javax.transaction.Transactional;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
 /**
  *
