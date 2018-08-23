@@ -40,8 +40,11 @@ public class MovieController {
     }
     
     @GetMapping("rest/movie")
-    public @ResponseBody List<MovieDto> findMovies(@RequestParam String title, 
-            @RequestParam String description, @RequestParam String genre, @RequestParam String id){
+    public @ResponseBody List<MovieDto> findMovies(
+            @RequestParam(required = false) String title, 
+            @RequestParam(required = false) String description, 
+            @RequestParam(required = false) String genre, 
+            @RequestParam(required = false) String id){
         return movieService.findMovie(title, description, genre, id);
     }
 }

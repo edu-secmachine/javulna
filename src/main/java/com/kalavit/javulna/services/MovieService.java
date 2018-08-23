@@ -41,12 +41,12 @@ public class MovieService {
         if (StringUtils.hasText(description)) {
             appendCondition(sql, conditions);
             conditions++;
-            sql.append("description LIKE %'").append(description).append("%'");
+            sql.append("description LIKE '%").append(description).append("%'");
         }
         if (StringUtils.hasText(genre)) {
             appendCondition(sql, conditions);
             conditions++;
-            sql.append("genre LIKE %'").append(genre).append("%'");
+            sql.append("genre LIKE '%").append(genre).append("%'");
         }
         if (StringUtils.hasText(id)) {
             appendCondition(sql, conditions);
