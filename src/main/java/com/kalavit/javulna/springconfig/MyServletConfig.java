@@ -28,17 +28,6 @@ public class MyServletConfig extends WebMvcConfigurerAdapter {
     public static final String[] ALLOWED_HEADERS = {"*"};
 
     @Bean
-    public DataSourceInitializer dataSourceInitializer() {
-        ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
-        resourceDatabasePopulator.addScript(new ClassPathResource("db/data/movies.sql"));
-
-        DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
-        //dataSourceInitializer.setDataSource(dataSource());
-        dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
-        return dataSourceInitializer;
-    }
-
-    @Bean
     public DozerBeanMapper dozerMapper() {
         DozerBeanMapper mapper = new DozerBeanMapper();
         List<String> mappingFileUrls = new ArrayList<>();

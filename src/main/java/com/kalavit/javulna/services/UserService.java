@@ -17,6 +17,7 @@ import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -37,6 +38,9 @@ public class UserService {
 
     @Autowired
     RemotePasswordChangeService passwordChangeService;
+    
+    @Autowired
+    PasswordEncoder encoder;
 
     public List<UserDto> findAllUsers() {
         List<User> users = uDao.findAll();
@@ -95,8 +99,8 @@ public class UserService {
 
     public boolean checkPassword(String name, String password) {
         User u = uDao.findUserByName(name);
-        if (u != null) {
-            if (u.getPassword().equals(password)) {
+        if (u != null) {           
+            if (encoder.matches(password, u.getPassword())) {
                 return true;
             }
         }
