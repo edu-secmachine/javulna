@@ -1,0 +1,520 @@
+{
+	"info": {
+		"_postman_id": "211f9c80-1f33-478c-b410-45e828839dcc",
+		"name": "Javulna",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Yoda",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "NoSecretsATrueJediHas",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{javulna_host}}/login",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Yoda",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "NoSecretsATrueJediHas",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{javulna_host}}/logout",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Movie",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "hu,en;q=0.8,en-US;q=0.6"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Star Wars: The empire strikes back\",\n\t\"description\": \"m\",\n\t\"genre\": \"sci-fi\"\n}"
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/movie",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "hu,en;q=0.8,en-US;q=0.6"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/user/password?user=Yoda&oldPassword=NoSecretsATrueJediHas&newPassword=DoIhaveASecretNow",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"user",
+						"password"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "Yoda"
+						},
+						{
+							"key": "oldPassword",
+							"value": "NoSecretsATrueJediHas"
+						},
+						{
+							"key": "newPassword",
+							"value": "DoIhaveASecretNow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "hu,en;q=0.8,en-US;q=0.6"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Mézga Aladár\",\n\t\"sex\": \"m\"\n}"
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/user",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List movies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "hu,en;q=0.8,en-US;q=0.6"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Mézga Aladár\",\n\t\"sex\": \"m\"\n}"
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/movie?title=Empire&description=Luke",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"movie"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Empire"
+						},
+						{
+							"key": "description",
+							"value": "Luke"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"aladar2\",\n\t\"sex\": \"m\",\n\t\"emailAddress\": \"<script>alert('Hi! Aladar hacked you.')</script>aladar@hackernet.com\",\n\t\"password\": \"aradadal\",\n\t\"webPageUrl\": \"javascript:alert('Aladar hacked you again')\"\n}"
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/user",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"2534509b-3675-4c96-9f7f-28e912efd424\",\n\t\"name\": \"Mézga Aladár\",\n\t\"sex\": \"m\",\n\t\"emailAddress\": \"<script>alert('Hi! Aladar hacked you.')</script>aladar@hackernet.com\",\n\t\"password\": \"aradadal\"\n}"
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/user",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendChat",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"mizu\",\n\t\"toUser\":\"Darth Veder\"\n}"
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/messages/chat",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"messages",
+						"chat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Chat Messages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"hello\",\n\t\"toUser\":\"Darth Veder\"\n}"
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/messages/chat?otherUser=Darth Veder",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"messages",
+						"chat"
+					],
+					"query": [
+						{
+							"key": "otherUser",
+							"value": "Darth Veder"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all Chat Messages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"hello\",\n\t\"toUser\":\"Darth Veder\"\n}"
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/messages/chatAll",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"messages",
+						"chatAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List buyable movieobjects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{javulna_host}}/rest/movieobject",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"movieobject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy movie objects",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"orderItems\": [{\n\t\t\t\"movieObjectId\": \"1\",\n\t\t\t\"nrOfItemsOrdered\": 1\n\t\t},\n\t\t{\n\t\t\t\"movieObjectId\": \"2\",\n\t\t\t\"nrOfItemsOrdered\": 2\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/order",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
