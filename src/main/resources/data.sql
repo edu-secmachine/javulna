@@ -4,3 +4,6 @@ insert into movie (id, title, description, genre) values ('3', 'Star Wars - Retu
 insert into appuser (id, name, sex, emailaddress, password, webpageurl, motto) values ('1', 'Yoda', 'm', 'yoda@lucasarts.com', 'NoSecretsATrueJediHas', 'http://www.starwars.com/databank/yoda', 'I don''t know how old I am.');
 insert into appuser (id, name, sex, emailaddress, password, webpageurl, motto) values ('2', 'Darth Vader', 'm', 'darth@lucasarts.com', 'IamYourFather', 'http://www.starwars.com/databank/darth-vader', 'I see a red door and I want it paint it back');
 insert into appuser (id, name, sex, emailaddress, password, webpageurl, motto) values ('3', 'Princess Leia', 'f', 'lea@lucasarts.com', 'IwishIhaveChoosenTheWookieInstead', 'http://starwars.wikia.com/wiki/Leia_Organa_Solo', '');
+insert into movieobject (id, name, description, price) values(1, 'Princess Lea figure', 'A beautiful, handpainted lively model of the young Lea', 3500);
+insert into movieobject (id, name, description, price) values(2, 'Yoda figure', 'A beautiful, handpainted exclusvely-green model of Yoda', 3600);
+insert into movieobject (id, name, description, price) values(3, 'Full Darth Veder Armor', 'A full-sized authentic costume of Darth-veder with boots, trousers, robe, mask and a beutifully cracted light-sword.', 214750);
