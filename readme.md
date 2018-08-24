@@ -2,17 +2,19 @@
 
 ## Table of Contents
 1. [Introduction](#Introduction)
-2. [Building the application](#Building the application)
-3. [Accessing the API via Postman](#Accessing the API via Postman)
+2. [Building the application](#Build)
+3. [Accessing the API via Postman](#Postman)
 4. [Exercises](#Exercises)
 
-## Introduction
+<a name="Introduction"></a>
+## Introduction 
 
 Javulna is an intentionally vulnerable Java application. It is created for educational purposes. It is intended mainly for Java developers.
 Javulna is a movie-related application, where you can log in and out, read information about movies, buy movie-related objects, send messages to other users of the application, etc. The functionalities are far from complete or coherent, they just serve the purpose of demonstrating specific vulnerabilities.
 This document contains exercises which can be done with Javulna to understand how to exploit and how to fix specific vulnerabilities.
 
-## Building the application
+<a name="Build"></a>
+## Building the application 
 
 Javulna is a standard Spring Boot application, built with Maven.
 
@@ -30,10 +32,11 @@ If you want to debug it:
 
 Alternatively you can run (and debug) the project from your preferred IDE by simply running the Application.java class.
 
-## Accessing the API via Postman
+## Accessing the API via Postman <a name="Postman"></a>
 Javulna in itself does not contain any user interface (except a default login page and an empty index.html). It is a RESTfull application accepting http requests and responding JSON strings. In the doc folder you can find a Postman collection export. We suggest you to install Postman on your device and import this collection, since it helps you a lot with starting the exercises.
 
-## Exercises
+<a name="Exercises"></a>
+## Exercises 
 
 ### Exercise 1 – Find users of the app and their passwords
 **Short Description**
