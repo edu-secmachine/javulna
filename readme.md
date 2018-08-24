@@ -5,8 +5,10 @@
 2. [Building the application](#Build)
 3. [Accessing the API via Postman](#Postman)
 4. [Exercises](#Exercises)
-    4.  [Exercises 1](#Exercise_1)
-    1. [Exercise 2](#Exercise_2)
+    1.  [Exercises 1](#Exercise_1)
+    2. [Exercise 2](#Exercise_2)
+     1. [Exercise 3](#Exercise_3)
+     1. [Exercise 4](#Exercise_4)
 
 <a name="Introduction"></a>
 ## Introduction 
