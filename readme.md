@@ -50,9 +50,9 @@ The list of the movies of the application is accessible by all users (including 
 
 **Service endpoint**
 On the /rest/users endpoint you can list movies of the database. This endpoint is accessible to anonymous (not logged in) users too.
-Request Method: GET
-URL: /rest/movie?title=&lt;title&gt;&description=&lt;desc&gt;&genre=&lt;genre&gt;&id=&lt;id&gt; (none of the request parameters are mandatory)
-Response: a JSON containg movies which fulfill the search conditions
+*Request Method*: GET
+*URL*: /rest/movie?title=&lt;title&gt;&description=&lt;desc&gt;&genre=&lt;genre&gt;&id=&lt;id&gt; (none of the request parameters are mandatory)
+*Response*: a JSON containg movies which fulfill the search conditions
 
 **Postman request**
 With Postman check the List Movies request in the Javulna collection to see how it works!
@@ -70,10 +70,10 @@ Using the usernames and passwords discovered in the previous exercise log in to 
 
 **Service endpoint**
 On the /rest/users endpoint you can list movies of the database. This endpoint is accessible to anonymous (not logged in) users too.
-Request Method: POST
-URL: /login
-Request body: username, password fields
-Response: a JSON containg the name of the logged in user and a cookie which can be used for subsequent authentication
+*Request Method*: POST
+*URL*: /login
+*Request body*: username, password fields
+*Response*: a JSON containg the name of the logged in user and a cookie which can be used for subsequent authentication
 
 **Postman request**
 Use the login request in the Javulna collection (Postman will automatically submit the cookie with the following requests)
@@ -84,9 +84,9 @@ Use the login request in the Javulna collection (Postman will automatically subm
 The application contains a password change functionality. Abuse it to change another user's password!
 
 **Service endpoint**
-Request Method: GET
-URL: /rest/user/password?user=Yoda&oldPassword=&lt;old_password&gt;&newPassword=&lt;new_password&gt;/
-Response:  Ok or Not ok
+*Request Method*: GET
+*URL*: /rest/user/password?user=Yoda&oldPassword=&lt;old_password&gt;&newPassword=&lt;new_password&gt;
+*Response*:  Ok or Not ok
 
 **Postman request**
 Change password
@@ -124,9 +124,9 @@ After the exploit fix the vulnerability within the code.
 You can buy movie-related objects with the application. Each object have a name, a description and a price. Try to by something for cheaper than the original price!
 
 **Service endpoint**
-Request Method: PUT
-URL: /rest/order
-Body: a JSON string containing the order
+*Request Method*: PUT
+*URL*: /rest/order
+*Body*: a JSON string containing the order
 	
 Response: a JSON containing the details of the order and the final price.
 
