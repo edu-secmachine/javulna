@@ -5,6 +5,8 @@
 2. [Building the application](#Build)
 3. [Accessing the API via Postman](#Postman)
 4. [Exercises](#Exercises)
+    4.  [Exercises 1](#Exercise_1)
+    1. [Exercise 2](#Exercise_2)
 
 <a name="Introduction"></a>
 ## Introduction 
@@ -32,12 +34,14 @@ If you want to debug it:
 
 Alternatively you can run (and debug) the project from your preferred IDE by simply running the Application.java class.
 
-## Accessing the API via Postman <a name="Postman"></a>
+<a name="Postman"></a>
+## Accessing the API via Postman 
 Javulna in itself does not contain any user interface (except a default login page and an empty index.html). It is a RESTfull application accepting http requests and responding JSON strings. In the doc folder you can find a Postman collection export. We suggest you to install Postman on your device and import this collection, since it helps you a lot with starting the exercises.
 
 <a name="Exercises"></a>
 ## Exercises 
 
+<a name="Exercise_1"></a>
 ### Exercise 1 – Find users of the app and their passwords
 **Short Description**
 The list of the movies of the application is accessible by all users (including anonymous users too). Find a vulnerability in this service and exploit it, so that you can see all users of the application and their passwords!
@@ -45,7 +49,7 @@ The list of the movies of the application is accessible by all users (including 
 **Service endpoint**
 On the /rest/users endpoint you can list movies of the database. This endpoint is accessible to anonymous (not logged in) users too.
 Request Method: GET
-URL: /rest/movie?title=<title>&description=<desc>&genre=<genre>&id=<id> (none of the request parameters are mandatory)
+URL: /rest/movie?title=&lt;title&gt;&description=&lt;desc&gt;&genre=&lt;genre&gt;&id=&lt;id&gt; (none of the request parameters are mandatory)
 Response: a JSON containg movies which fulfill the search conditions
 
 **Postman request**
@@ -56,6 +60,7 @@ The service behind this endpoint is vulnerable to one of the most classic exploi
 When you are done, check the source code (MovieService.findMovie) and fix it. 
 Discuss what could be the developers motivation creating this code!
 
+<a name="Exercise_2"></a>
 ### Exercise 2 - log in to the application
 
 **Short Description**
@@ -71,13 +76,14 @@ Response: a JSON containg the name of the logged in user and a cookie which can 
 **Postman request**
 Use the login request in the Javulna collection (Postman will automatically submit the cookie with the following requests)
 
+<a name="Exercise_3"></a>
 ### Exercise 3 – change another user's password
 **Short Description**
 The application contains a password change functionality. Abuse it to change another user's password!
 
 **Service endpoint**
 Request Method: GET
-URL: /rest/user/password?user=Yoda&oldPassword=<old_password>&newPassword=<new_password>/
+URL: /rest/user/password?user=Yoda&oldPassword=&lt;old_password&gt;&newPassword=&lt;new_password&gt;/
 Response:  Ok or Not ok
 
 **Postman request**
@@ -110,6 +116,7 @@ The PasswordChange.xml looks like this:
 ```
 After the exploit fix the vulnerability within the code.
 
+<a name="Exercise_4"></a>
 ### Exercise 4 – Buy cheaper
 **Short Description**
 You can buy movie-related objects with the application. Each object have a name, a description and a price. Try to by something for cheaper than the original price!
