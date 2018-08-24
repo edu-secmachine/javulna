@@ -5,7 +5,7 @@
 2. [Building the application](#Build)
 3. [Accessing the API via Postman](#Postman)
 4. [Exercises](#Exercises)
-    1.  [Exercises 1 - Find users of the app and their password](#Exercise_1)
+    1.  [Exercise 1 - Find users of the app and their password](#Exercise_1)
     2. [Exercise 2 - log into the application](#Exercise_2)
      1. [Exercise 3 - change another user's password](#Exercise_3)
      1. [Exercise 4 - Buy cheaper](#Exercise_4)
