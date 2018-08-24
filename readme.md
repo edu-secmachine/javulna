@@ -1,5 +1,11 @@
 # Javulna
 
+## Table of Contents
+1. [Introduction](#Introduction)
+2. [Building the application](#Building the application)
+3. [Accessing the API via Postman](#Accessing the API via Postman)
+4. [Exercises](#Exercises)
+
 ## Introduction
 
 Javulna is an intentionally vulnerable Java application. It is created for educational purposes. It is intended mainly for Java developers.
