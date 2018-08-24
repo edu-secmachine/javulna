@@ -5,10 +5,11 @@
 2. [Building the application](#Build)
 3. [Accessing the API via Postman](#Postman)
 4. [Exercises](#Exercises)
-    1.  [Exercises 1](#Exercise_1)
-    2. [Exercise 2](#Exercise_2)
-     1. [Exercise 3](#Exercise_3)
-     1. [Exercise 4](#Exercise_4)
+    1.  [Exercises 1 - Find users of the app and their password](#Exercise_1)
+    2. [Exercise 2 - log into the application](#Exercise_2)
+     1. [Exercise 3 - change another user's password](#Exercise_3)
+     1. [Exercise 4 - Buy cheaper](#Exercise_4)
+     1. [Exercise 5 - Serialization vulnerability](#Exercise_5)
 
 <a name="Introduction"></a>
 ## Introduction 
@@ -137,6 +138,7 @@ Use the “Buy movie objects” request to place an order and the “List buyabl
 Find a way to buy something for a cheaper price than intended!
 After you found the vulerability, fix the code!
 
+<a name="Exercise_5"></a>
 ### Exercise 5 – Serialization vulnerability
 **Short Description**
 Find a serialization vulnerability withing the application, and exploit it!
