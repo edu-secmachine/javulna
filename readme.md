@@ -136,6 +136,21 @@ Use the “Buy movie objects” request to place an order and the “List buyabl
 **Detailed description**
 Find a way to buy something for a cheaper price than intended!
 After you found the vulerability, fix the code!
+
+### Exercise 5 – Serialization vulnerability
+**Short Description**
+Find a serialization vulnerability withing the application, and exploit it!
+**Service endpoint**
+There is no specific endpoint for this exercise.
+
+**Postman request**
+all of them applicable
+
+**Detailed description**
+The application uses a serialized cookie to do some extra security check. Alas this extra feature actually introduces a serious security bug. Find the cookie and try to find out what is in it! Then modify it to exploit the vulnerability!
+If you feel lost, check the classes: ExtraAuthenticationCheckFilter and CustomAuthenticationSuccessHandler. 
+Be aware that the application has a dependency to org.apache.commons-collections4 4.0.
+
 ### Exercise 5 – 
 **Short Description**
 

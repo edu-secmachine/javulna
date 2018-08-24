@@ -6,6 +6,7 @@
 package com.kalavit.javulna.model;
 
 import java.util.Collection;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -114,6 +115,51 @@ public class User extends BaseEntity implements UserDetails{
 
     @Override
     public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.name);
+        hash = 71 * hash + Objects.hashCode(this.sex);
+        hash = 71 * hash + Objects.hashCode(this.password);
+        hash = 71 * hash + Objects.hashCode(this.emailAddress);
+        hash = 71 * hash + Objects.hashCode(this.motto);
+        hash = 71 * hash + Objects.hashCode(this.webPageUrl);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.sex, other.sex)) {
+            return false;
+        }
+        if (!Objects.equals(this.password, other.password)) {
+            return false;
+        }
+        if (!Objects.equals(this.emailAddress, other.emailAddress)) {
+            return false;
+        }
+        if (!Objects.equals(this.motto, other.motto)) {
+            return false;
+        }
+        if (!Objects.equals(this.webPageUrl, other.webPageUrl)) {
+            return false;
+        }
         return true;
     }
     
