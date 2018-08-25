@@ -60,9 +60,9 @@ On the /rest/users endpoint you can list movies of the database. This endpoint i
 With Postman check the List Movies request in the Javulna collection to see how it works!
 
 **Detailed description**
-The service behind this endpoint is vulnerable to one of the most classic exploit of programming. Find the vulnerability, and exploit it so that you can get users and their passwords from the database! (Hint: The table containing the users' data is called APPUSER.) 
-When you are done, check the source code (MovieService.findMovie) and fix it. 
-Discuss what could be the developers motivation creating this code!
+The service behind this endpoint is vulnerable to one of the most classic exploit of programming. Find the vulnerability, and exploit it so that you can get users and their passwords from the database! (Hint: The table containing the users' data is called APPUSER.)   
+When you are done, check the source code (MovieService.findMovie) and fix it.   
+Discuss what could have been the developers motivation creating this code!  
 
 <a name="Exercise_2"></a>
 ### Exercise 2 - log in to the application
@@ -71,11 +71,11 @@ Discuss what could be the developers motivation creating this code!
 Using the usernames and passwords discovered in the previous exercise log in to the application. There is no hacking involved here, this step is only necessary so that you can continue with the next exercises.
 
 **Service endpoint**
-On the /rest/users endpoint you can list movies of the database. This endpoint is accessible to anonymous (not logged in) users too.
-*Request Method*: POST
-*URL*: /login
-*Request body*: username, password fields
-*Response*: a JSON containg the name of the logged in user and a cookie which can be used for subsequent authentication
+On the /rest/users endpoint you can list movies of the database. This endpoint is accessible to anonymous (not logged in) users too.  
+*Request Method*: POST  
+*URL*: /login  
+*Request body*: username, password fields  
+*Response*: a JSON containg the name of the logged in user and a cookie which can be used for subsequent authentication  
 
 **Postman request**
 Use the login request in the Javulna collection (Postman will automatically submit the cookie with the following requests)
@@ -86,16 +86,16 @@ Use the login request in the Javulna collection (Postman will automatically subm
 The application contains a password change functionality. Abuse it to change another user's password!
 
 **Service endpoint**
-*Request Method*: GET
-*URL*: /rest/user/password?user=Yoda&oldPassword=&lt;old_password&gt;&newPassword=&lt;new_password&gt;
-*Response*:  Ok or Not ok
+*Request Method*: GET  
+*URL*: /rest/user/password?user=Yoda&oldPassword=&lt;old_password&gt;&newPassword=&lt;new_password&gt;  
+*Response*:  Ok or Not ok  
 
 **Postman request**
 Change password
 
 **Detailed description**
-The change password service first creates a password-change xml to call a remote password change service with it (in reality the remote service does nothing remotely, just parses the xml and changes the password locally).
-Find a vulnerability within this service!
+The change password service first creates a password-change xml to call a remote password change service with it (in reality the remote service does nothing remotely, just parses the xml and changes the password locally).  
+Find a vulnerability within this service!  
 This is how the password service creates the xml file:
 ```java
 private String createXml(String name, String newPassword) {
@@ -126,9 +126,9 @@ After the exploit fix the vulnerability within the code.
 You can buy movie-related objects with the application. Each object have a name, a description and a price. Try to by something for cheaper than the original price!
 
 **Service endpoint**
-*Request Method*: PUT
-*URL*: /rest/order
-*Body*: a JSON string containing the order
+*Request Method*: PUT  
+*URL*: /rest/order  
+*Body*: a JSON string containing the order  
 	
 Response: a JSON containing the details of the order and the final price.
 
@@ -136,7 +136,7 @@ Response: a JSON containing the details of the order and the final price.
 Use the “Buy movie objects” request to place an order and the “List buyable movie objects” request to see what you can buy!	
 
 **Detailed description**
-Find a way to buy something for a cheaper price than intended!
+Find a way to buy something for a cheaper price than intended!  
 After you found the vulerability, fix the code!
 
 <a name="Exercise_5"></a>
@@ -145,26 +145,26 @@ After you found the vulerability, fix the code!
 The application has a file upload and a file download functionality. Both of them suffer from several vulnerabilities. Find a vulnerability, with which you can read any file from the server's files-system!
 
 **Service endpoint**
-FILE UPLOAD
-*Request Method*: POST
-*URL*: /uploadFile
-*Body*: the file to upload with "file" key
-*Response*: A JSON object containig information about the uploaded file
+FILE UPLOAD  
+*Request Method*: POST  
+*URL*: /uploadFile  
+*Body*: the file to upload with "file" key  
+*Response*: A JSON object containig information about the uploaded file  
 
-FILE DOWNLOAD
-*Request Method*: GET
-*URL*: /downloadFile?fileName=&lt;file name&gt;
-*Response*:  The file to be downloaded
+FILE DOWNLOAD  
+*Request Method*: GET  
+*URL*: /downloadFile?fileName=&lt;file name&gt;  
+*Response*:  The file to be downloaded  
 
 **Postman request**
-Upload File
-Donwload File
+Upload File  
+Donwload File  
 
 **Detailed description**
-The application stores uploaded files on the server's file-system. In order for the upload and download functionality to work you first have to set the value of the javulna.filestore.dir property in the application.properties file to some reasonabel value (to a real path which exists on your machine).
-Then try to download a file with the application that is outside of this directory!
-Once you are done fix the found vulnerability!
-What other voulnerabiltites can you spot in the upload file functionality? How would you fix theese?
+The application stores uploaded files on the server's file-system. In order for the upload and download functionality to work you first have to set the value of the javulna.filestore.dir property in the application.properties file to some reasonabel value (to a real path which exists on your machine).  
+Then try to download a file with the application that is outside of this directory!  
+Once you are done fix the found vulnerability!  
+What other voulnerabiltites can you spot in the upload file functionality? How would you fix theese?  
 <a name="Exercise_6"></a>
 ### Exercise 6 – Serialization vulnerability
 **Short Description**
@@ -176,18 +176,18 @@ There is no specific endpoint for this exercise.
 all of them applicable
 
 **Detailed description**
-The application uses a serialized cookie to do some extra security check. Alas this extra feature actually introduces a serious security bug. Find the cookie and try to find out what is in it! Then modify it to exploit the vulnerability!
-If you feel lost, check the classes: ExtraAuthenticationCheckFilter and CustomAuthenticationSuccessHandler. 
-Be aware that the application has a dependency to org.apache.commons-collections4 4.0.
+The application uses a serialized cookie to do some extra security check. Alas this extra feature actually introduces a serious security bug. Find the cookie and try to find out what is in it! Then modify it to exploit the vulnerability!  
+If you feel lost, check the classes: ExtraAuthenticationCheckFilter and CustomAuthenticationSuccessHandler.   
+Be aware that the application has a dependency to org.apache.commons-collections4 4.0.  
 
 ### Exercise  –
 **Short Description**
 
 **Service endpoint**
 
-*Request Method:* GET
-*URL:* /rest/
-*Response:* 
+*Request Method:* GET  
+*URL:* /rest/  
+*Response:*  
 
 **Postman request**
 
