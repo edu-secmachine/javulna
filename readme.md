@@ -6,10 +6,11 @@
 3. [Accessing the API via Postman](#Postman)
 4. [Exercises](#Exercises)
     1.  [Exercise 1 - Find users of the app and their password](#Exercise_1)
-    2. [Exercise 2 - log into the application](#Exercise_2)
-     1. [Exercise 3 - change another user's password](#Exercise_3)
+    2. [Exercise 2 - Log into the application](#Exercise_2)
+     1. [Exercise 3 - Change another user's password](#Exercise_3)
      1. [Exercise 4 - Buy cheaper](#Exercise_4)
-     1. [Exercise 5 - Serialization vulnerability](#Exercise_5)
+     1. [Exercise 5 - File handling](#Exercise_5)
+     1. [Exercise 6 - Serialization vulnerability](#Exercise_6)
 
 <a name="Introduction"></a>
 ## Introduction 
@@ -139,7 +140,33 @@ Find a way to buy something for a cheaper price than intended!
 After you found the vulerability, fix the code!
 
 <a name="Exercise_5"></a>
-### Exercise 5 – Serialization vulnerability
+### Exercise 5 – File handling
+**Short Description**
+The application has a file upload and a file download functionality. Both of them suffer from several vulnerabilities. Find a vulnerability, with which you can read any file from the server's files-system!
+
+**Service endpoint**
+FILE UPLOAD
+*Request Method*: POST
+*URL*: /uploadFile
+*Body*: the file to upload with "file" key
+*Response*: A JSON object containig information about the uploaded file
+
+FILE DOWNLOAD
+*Request Method*: GET
+*URL*: /downloadFile?fileName=&lt;file name&gt;
+*Response*:  The file to be downloaded
+
+**Postman request**
+Upload File
+Donwload File
+
+**Detailed description**
+The application stores uploaded files on the server's file-system. In order for the upload and download functionality to work you first have to set the value of the javulna.filestore.dir property in the application.properties file to some reasonabel value (to a real path which exists on your machine).
+Then try to download a file with the application that is outside of this directory!
+Once you are done fix the found vulnerability!
+What other voulnerabiltites can you spot in the upload file functionality? How would you fix theese?
+<a name="Exercise_6"></a>
+### Exercise 6 – Serialization vulnerability
 **Short Description**
 Find a serialization vulnerability withing the application, and exploit it!
 **Service endpoint**
@@ -153,16 +180,15 @@ The application uses a serialized cookie to do some extra security check. Alas t
 If you feel lost, check the classes: ExtraAuthenticationCheckFilter and CustomAuthenticationSuccessHandler. 
 Be aware that the application has a dependency to org.apache.commons-collections4 4.0.
 
-### Exercise 5 – 
+### Exercise  –
 **Short Description**
 
 **Service endpoint**
 
-Request Method: GET
-URL: /rest/
-Response: 
+*Request Method:* GET
+*URL:* /rest/
+*Response:* 
 
 **Postman request**
 
 **Detailed description**
-
