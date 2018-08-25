@@ -46,7 +46,7 @@ Javulna in itself does not contain any user interface (except a default login pa
 ## Exercises 
 
 <a name="Exercise_1"></a>
-### Exercise 1 – Find users of the app and their passwords
+### Exercise 1 – Find users of the app and their passwords 
 **Short Description**
 The list of the movies of the application is accessible by all users (including anonymous users too). Find a vulnerability in this service and exploit it, so that you can see all users of the application and their passwords!
 
