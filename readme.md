@@ -46,15 +46,15 @@ Javulna in itself does not contain any user interface (except a default login pa
 ## Exercises 
 
 <a name="Exercise_1"></a>
-### Exercise 1 – Find users of the app and their passwords 
+### Exercise 1 – Find users of the app and their passwords
 **Short Description**
 The list of the movies of the application is accessible by all users (including anonymous users too). Find a vulnerability in this service and exploit it, so that you can see all users of the application and their passwords!
 
 **Service endpoint**
-On the /rest/users endpoint you can list movies of the database. This endpoint is accessible to anonymous (not logged in) users too.
-*Request Method*: GET
-*URL*: /rest/movie?title=&lt;title&gt;&description=&lt;desc&gt;&genre=&lt;genre&gt;&id=&lt;id&gt; (none of the request parameters are mandatory)
-*Response*: a JSON containg movies which fulfill the search conditions
+On the /rest/users endpoint you can list movies of the database. This endpoint is accessible to anonymous (not logged in) users too.  
+*Request Method*: GET  
+*URL*: /rest/movie?title=&lt;title&gt;&description=&lt;desc&gt;&genre=&lt;genre&gt;&id=&lt;id&gt; (none of the request parameters are mandatory)  
+*Response*: a JSON containg movies which fulfill the search conditions  
 
 **Postman request**
 With Postman check the List Movies request in the Javulna collection to see how it works!
