@@ -5,6 +5,7 @@
  */
 package com.kalavit.javulna.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 
@@ -16,6 +17,7 @@ import javax.persistence.Lob;
 public class Movie extends BaseEntity{
     private String title;
     @Lob
+    @Column(length=20971520)
     private String description;
     private String genre;
 

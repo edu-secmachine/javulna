@@ -24,12 +24,12 @@
 					"urlencoded": [
 						{
 							"key": "username",
-							"value": "Yoda",
+							"value": "???",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "NoSecretsATrueJediHas",
+							"value": "???",
 							"type": "text"
 						}
 					]
@@ -131,6 +131,106 @@
 					"path": [
 						"rest",
 						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Movie with XML",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "hu,en;q=0.8,en-US;q=0.6"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<createMovie>\n\t<title>Star Wars: The empire strikes back</title>\n\t<description>m</description>\n\t<genre>sci-fi</genre>\n</createMovie>\n"
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/movie",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Movie with XML param",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "hu,en;q=0.8,en-US;q=0.6"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "inputxml",
+							"value": "<createMovie>\n\t<title>Star Wars: The empire strikes back</title>\n\t<description>m</description>\n\t<genre>sci-fi</genre>\n</createMovie>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{javulna_host}}/rest/moviexml",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"moviexml"
 					]
 				}
 			},
@@ -318,7 +418,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"aladar2\",\n\t\"sex\": \"m\",\n\t\"emailAddress\": \"<script>alert('Hi! Aladar hacked you.')</script>aladar@hackernet.com\",\n\t\"password\": \"aradadal\",\n\t\"webPageUrl\": \"javascript:alert('Aladar hacked you again')\"\n}"
+					"raw": "{\n\t\"name\": \"aladar2\",\n\t\"sex\": \"m\",\n\t\"emailAddress\": \"aladar@mezga.com\",\n\t\"password\": \"aradadal\",\n\t\"webPageUrl\": \"www.mezgaaladar.hu\"\n}"
 				},
 				"url": {
 					"raw": "{{javulna_host}}/rest/user",
@@ -349,7 +449,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\": \"2534509b-3675-4c96-9f7f-28e912efd424\",\n\t\"name\": \"Mézga Aladár\",\n\t\"sex\": \"m\",\n\t\"emailAddress\": \"<script>alert('Hi! Aladar hacked you.')</script>aladar@hackernet.com\",\n\t\"password\": \"aradadal\"\n}"
+					"raw": "{\n\t\"id\": \"2534509b-3675-4c96-9f7f-28e912efd424\",\n\t\"name\": \"Mézga Aladár\",\n\t\"sex\": \"m\",\n\t\"emailAddress\": \"aladar@mezga.com\",\n\t\"password\": \"aradadal\"\n}"
 				},
 				"url": {
 					"raw": "{{javulna_host}}/rest/user",
@@ -511,6 +611,62 @@
 					"path": [
 						"rest",
 						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload file",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{javulna_host}}/uploadFile",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"uploadFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download file",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{javulna_host}}/downloadFile?fileName=01.jpg",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"downloadFile"
+					],
+					"query": [
+						{
+							"key": "fileName",
+							"value": "01.jpg"
+						}
 					]
 				}
 			},

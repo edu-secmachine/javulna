@@ -32,11 +32,18 @@ public class MovieController {
     MovieAutoDao movieAutoDao;
     
     @PostMapping("rest/movie")
-    public String createMovie(@RequestBody MovieDto md){
+    public Movie createMovie(@RequestBody MovieDto md){
         Movie m = new Movie();
         md.toMovie(m);
         movieAutoDao.save(m);
-        return m.getId();
+        return m;
+    }
+    
+    @PostMapping("rest/moviexml")
+    public Movie createMovie(
+            @RequestParam(name = "inputxml") String inputXml){
+        Movie m = movieService.saveMovieFromXml(inputXml);
+        return m;
     }
     
     @GetMapping("rest/movie")

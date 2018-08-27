@@ -11,6 +11,7 @@
      1. [Exercise 4 - Buy cheaper](#Exercise_4)
      1. [Exercise 5 - File handling](#Exercise_5)
      1. [Exercise 6 - Serialization vulnerability](#Exercise_6)
+     1. [Exercise 7- Xml handling](#Exercise_7)
 
 <a name="Introduction"></a>
 ## Introduction 
@@ -167,8 +168,10 @@ Once you are done fix the found vulnerability!
 What other voulnerabiltites can you spot in the upload file functionality? How would you fix theese?  
 <a name="Exercise_6"></a>
 ### Exercise 6 – Serialization vulnerability
+
 **Short Description**
 Find a serialization vulnerability withing the application, and exploit it!
+
 **Service endpoint**
 There is no specific endpoint for this exercise.
 
@@ -179,6 +182,50 @@ all of them applicable
 The application uses a serialized cookie to do some extra security check. Alas this extra feature actually introduces a serious security bug. Find the cookie and try to find out what is in it! Then modify it to exploit the vulnerability!  
 If you feel lost, check the classes: ExtraAuthenticationCheckFilter and CustomAuthenticationSuccessHandler.   
 Be aware that the application has a dependency to org.apache.commons-collections4 4.0.  
+
+<a name="Exercise_7"></a>
+### Exercise  7 – Xml handling 
+**Short Description**
+The create movie service accepts xml input as well as JSON. There are two ways to call this service and one of them is vulnerable. Find out which one!
+
+**Service endpoint**
+
+CREATE MOVIE  
+  
+*Request Method:* POST  
+*URL:* /rest/movie  
+*Body:*  
+An xml in this form:  
+```xml
+<createMovie>
+	<title>Star Wars: The empire strikes back</title>
+	<description>m</description>
+	<genre>sci-fi</genre>
+</createMovie>
+```
+*Response:* JSON of the created movie  
+
+CREATE MOVIE WTIH REQUEST PARAM  
+  
+*Request Method:* POST  
+*URL:* /rest/movie  
+*Body:*  
+Key: "inputxml":  
+Value:   
+```xml
+<createMovie>
+	<title>Star Wars: The empire strikes back</title>
+	<description>m</description>
+	<genre>sci-fi</genre>
+</createMovie>
+```
+*Response:* JSON of the created movie  
+
+**Postman request**
+Create movie with XML and Create Movie with XML param
+
+**Detailed description**
+Once you are logged in you can create movies in the database. You can  create a movie from JSON or form XML. For some reason there are two ways to send an xml: send it in the body of a POST request with Content-type: application/xml, or send it as a request parameter. One of these is vulnerable to a special xml-related attack. Find out which one! Exploit the vulnerability and fix it! Discuss why only one of the two services was vulnerable!
 
 ### Exercise  –
 **Short Description**

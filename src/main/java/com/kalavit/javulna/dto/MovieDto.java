@@ -6,15 +6,22 @@
 package com.kalavit.javulna.dto;
 
 import com.kalavit.javulna.model.Movie;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author peti
  */
+@XmlRootElement(name = "createMovie")
 public class MovieDto {
+    @XmlElement
     private String id;
+    @XmlElement
     private String title;
+    @XmlElement
     private String description;
+    @XmlElement
     private String genre;
 
     public MovieDto() {
