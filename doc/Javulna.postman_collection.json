@@ -671,6 +671,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Find user in LDAP",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{javulna_host}}/rest/ldap?username=aladar&password=aradadal",
+					"host": [
+						"{{javulna_host}}"
+					],
+					"path": [
+						"rest",
+						"ldap"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "aladar"
+						},
+						{
+							"key": "password",
+							"value": "aradadal"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
