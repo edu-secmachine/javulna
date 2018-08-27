@@ -12,6 +12,7 @@
      1. [Exercise 5 - File handling](#Exercise_5)
      1. [Exercise 6 - Serialization vulnerability](#Exercise_6)
      1. [Exercise 7- Xml handling](#Exercise_7)
+     1. [Exercise  8 – attack The LDAP](#Exercise_8)
 
 <a name="Introduction"></a>
 ## Introduction 
@@ -227,15 +228,36 @@ Create movie with XML and Create Movie with XML param
 **Detailed description**
 Once you are logged in you can create movies in the database. You can  create a movie from JSON or form XML. For some reason there are two ways to send an xml: send it in the body of a POST request with Content-type: application/xml, or send it as a request parameter. One of these is vulnerable to a special xml-related attack. Find out which one! Exploit the vulnerability and fix it! Discuss why only one of the two services was vulnerable!
 
-### Exercise  –
+<a name="Exercise_8"></a>
+### Exercise  8 – attack The LDAP
 **Short Description**
+The application contains a simpel service which enables users to find what data is stored about them in an LDAP directory. In order to obtain the data users have to provide their username and password. Can you get users data without knowing their passwords?
 
 **Service endpoint**
 
-*Request Method:* GET  
-*URL:* /rest/  
-*Response:*  
+*Request Method:* GET   
+*URL:* /rest/ldap?username=&lt;username&gt;&password=&lt;password&gt;  
+*Response:*user's data in JSON format  
 
 **Postman request**
+Find user in LDAP
 
-**Detailed description**
+**Detailed description**  
+  
+Previous configuration  
+  
+In order to do this exercise you will have to install first an LDAP server on your machine. Don't worry, it's supereasy. Go to https://github.com/kwart/ldap-server/releases and download the ldap-server.jar. In this application's doc directory you will find an *ldap.ldif* file. You will have to start the downloaded LDAP server with this ldif file. You can do this by issuing the command:
+```
+java -jar ldap-server.jar <path-to-javulna>/doc/ldap.ldif
+```
+Normally you have nothing else to do, you can start the exercise. However. if for some reason you reconfigure anything in the downloaded LDAP sever don't forget to reconfigure the LDAP properties of javulna in application.properties.  
+
+The exercise  
+
+With the abovemntioned request you can get details of a user from the LDAP directory.
+You can check that the service works with the username: "aladar" and with password "aradadal".  
+Can you get another user's data?  
+Can you get a specific user's data (e.g. uid="kriszta")?  
+Can you get data of a user whose name starts with "a"?  
+Could you somehow get all user's data from LDAP?  
+Examine the source code, find and fix the vulnerability!

@@ -1,0 +1,68 @@
+dn: dc=jboss,dc=org
+dc: jboss
+objectClass: top
+objectClass: domain
+
+dn: ou=Users,dc=jboss,dc=org
+objectClass: organizationalUnit
+objectClass: top
+ou: Users
+
+dn: uid=jduke,ou=Users,dc=jboss,dc=org
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+cn: Java Duke
+sn: duke
+uid: jduke
+userPassword: theduke
+telephoneNumber: 444-555
+mail:aladar@mgza.hu
+internationaliSDNNumber: 234223423
+
+dn: uid=aladar,ou=Users,dc=jboss,dc=org
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+cn: Mezga Aladar
+sn: aladar
+uid: aladar
+userPassword: aradadal
+telephoneNumber: 343-443
+mail:aladar@mgza.hu
+internationaliSDNNumber: 234223411
+
+dn: uid=kriszta,ou=Users,dc=jboss,dc=org
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+cn: Mezga Kriszta
+sn: kriszta
+uid: kriszta
+userPassword: tisztagyagya
+telephoneNumber: 344-445
+mail:kriszta@mgza.hu
+internationaliSDNNumber: 234223444
+
+dn: uid=geza,ou=Users,dc=jboss,dc=org
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+cn: Mezga Geza
+sn: geza
+uid: geza
+userPassword: mitmond
+telephoneNumber: 113-435
+mail:geza@mgza.hu
+internationaliSDNNumber: 235555455
+
+dn: ou=Roles,dc=jboss,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: Roles
+
+dn: cn=Admin,ou=Roles,dc=jboss,dc=org
+objectClass: top
+objectClass: groupOfNames
+cn: Admin
+member: uid=jduke,ou=Users,dc=jboss,dc=org
