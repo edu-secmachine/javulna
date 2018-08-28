@@ -28,8 +28,8 @@ import org.springframework.stereotype.Component;
  * @author peti
  */
 @Component
-public class ExtraAuthenticationCheckFilter implements Filter{
-    
+public class ExtraAuthenticationCheckFilter implements Filter {
+
     private static final Logger LOG = LoggerFactory.getLogger(ExtraAuthenticationCheckFilter.class);
 
     @Override
@@ -38,22 +38,24 @@ public class ExtraAuthenticationCheckFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        if (request instanceof HttpServletRequest){
-            HttpServletRequest req = (HttpServletRequest)request;
+        if (request instanceof HttpServletRequest) {
+            HttpServletRequest req = (HttpServletRequest) request;
             Cookie[] cookies = req.getCookies();
-            for (Cookie cooky : cookies) {
-                if(cooky.getName().equals(CustomAuthenticationSuccessHandler.USER_AUTHENTICATION_EXTRA_SECURITY)){
-                    String value = cooky.getValue();
-                    Object principalFromCookie = SerializationUtil.readUserFromFile(Base64.getDecoder().decode(value));
-                    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-                    if(principal instanceof User && !principal.equals(principalFromCookie)){
-                        LOG.error("something is wrong. Principal in cookie is not good. Possible secuirty failure!");
-                    }
-                    else{
-                        LOG.debug("the two principals are the same. Good.");
+            if (cookies != null) {
+                for (Cookie cooky : cookies) {
+                    if (cooky.getName().equals(CustomAuthenticationSuccessHandler.USER_AUTHENTICATION_EXTRA_SECURITY)) {
+                        String value = cooky.getValue();
+                        Object principalFromCookie = SerializationUtil.readUserFromFile(Base64.getDecoder().decode(value));
+                        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                        if (principal instanceof User && !principal.equals(principalFromCookie)) {
+                            LOG.error("something is wrong. Principal in cookie is not good. Possible secuirty failure!");
+                        } else {
+                            LOG.debug("the two principals are the same. Good.");
+                        }
                     }
                 }
             }
+
         }
         chain.doFilter(request, response);
     }
@@ -61,5 +63,5 @@ public class ExtraAuthenticationCheckFilter implements Filter{
     @Override
     public void destroy() {
     }
-    
+
 }
