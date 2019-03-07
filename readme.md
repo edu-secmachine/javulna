@@ -171,7 +171,7 @@ What other voulnerabiltites can you spot in the upload file functionality? How w
 ### Exercise 6 – Serialization vulnerability
 
 **Short Description**
-Find a serialization vulnerability withing the application, and exploit it!
+Find a serialization vulnerability within the application, and exploit it!
 
 **Service endpoint**
 There is no specific endpoint for this exercise.
@@ -209,7 +209,7 @@ An xml in this form:
 CREATE MOVIE WTIH REQUEST PARAM  
   
 *Request Method:* POST  
-*URL:* /rest/movie  
+*URL:* /rest/moviexml  
 *Body:*  
 Key: "inputxml":  
 Value:   
