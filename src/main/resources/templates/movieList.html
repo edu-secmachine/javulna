@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>List of movies in the database</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/js/javulna.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.imdb.com/" target="_blank">Imdb</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div id="bcDiv">
+                <h2>Filmek az adatbázisban</h2>
+                <table class="table" id="msgListTable">
+                    <thead>
+                        <tr>
+                            <td>Film címe</td>
+                            <td>Leírás</td>
+                            <td>Műfaj   </td>
+                        </tr>
+                    </thead>
+                    <tr data-th-each="movie: ${movies}" class="msgListTableRow">
+
+                        <td data-th-text="${movie.title}"></td>
+                        <td>
+                            <a data-th-text="${#strings.abbreviate(movie.description,35)}" class="clickableDesc" data-th-href="@{'#' + ${movie.id}}"></a>
+                        </td>
+                        <td data-th-text="${movie.genre}"></td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

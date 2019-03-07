@@ -11,9 +11,12 @@ import com.kalavit.javulna.services.autodao.MovieAutoDao;
 import java.io.ByteArrayInputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,15 +34,36 @@ import org.w3c.dom.NodeList;
  */
 @Service
 public class MovieService {
-    
+
     private static final Logger LOG = LoggerFactory.getLogger(MovieService.class);
-    
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    
+
     @Autowired
     MovieAutoDao movieAutoDao;
-    
+
+    @Autowired
+    private DozerBeanMapper beanMapper;
+
+    public List<MovieDto> findAllMovies() {
+        List<Movie> allMovies = movieAutoDao.findAll();
+        List<MovieDto> ret = new ArrayList<>();
+        for (Movie movie : allMovies) {
+            ret.add(beanMapper.map(movie, MovieDto.class));
+        }
+        return ret;
+    }
+
+    public MovieDto findMovie(String id) {
+        Optional<Movie> movieO = movieAutoDao.findById(id);
+        if (movieO.isPresent()) {
+            return beanMapper.map(movieO.get(), MovieDto.class);
+        } else {
+            return null;
+        }
+    }
+
     public List<MovieDto> findMovie(String title, String description, String genre, String id) {
         int conditions = 0;
         StringBuilder sql = new StringBuilder("select description, title, genre, id from movie ");
@@ -87,8 +111,8 @@ public class MovieService {
             sb.append(" and ");
         }
     }
-    
-    public Movie saveMovieFromXml(String xml){
+
+    public Movie saveMovieFromXml(String xml) {
         try {
             Movie m = new Movie();
             DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -101,19 +125,19 @@ public class MovieService {
             return m;
         } catch (Exception ex) {
             throw new RuntimeException(ex);
-        } 
+        }
     }
 
     private String getText(Element el, String tagName) {
         NodeList nl = el.getElementsByTagName(tagName);
-        if(nl != null && nl.getLength() >0){
+        if (nl != null && nl.getLength() > 0) {
             NodeList children = nl.item(0).getChildNodes();
-            if(children != null && children.getLength() > 0){
+            if (children != null && children.getLength() > 0) {
                 return children.item(0).getTextContent();
             }
         }
         LOG.debug("no text content of tag with name: {}", tagName);
         return null;
     }
-    
+
 }
