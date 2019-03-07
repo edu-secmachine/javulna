@@ -8,8 +8,6 @@ package com.kalavit.javulna.services;
 import com.kalavit.javulna.dto.LdapUserDto;
 import com.kalavit.javulna.springconfig.LdapConfig;
 import java.util.Hashtable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.naming.Context;
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
