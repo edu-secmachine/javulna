@@ -266,11 +266,11 @@ Examine the source code, find and fix the vulnerability!
 <a name="Exercise_9"></a>
 ### Exercise  9 – XSS
 **Short Description**
-On branch ui there is an application which contains two pages. Alas one of them suffers from XSS vulnerability. Find it and fix it!
+On branch ui there is an application which contains two pages. Alas, one of them suffers from XSS vulnerability. Find it and fix it!
 
 **Detailed description**  
-Checkout branch ui (git cechkout ui), make a clean install, and run the application. Navigate to your browser, and enter the url localhost:8080! You should see a page listing the movies in the database. There is also a page accessible from the menu for adding new movies to the database. Find an XSS vulnerability in one of these pages! 
-When found, check the source-code.
-What type of XSS is this?
-Discuss why this vulnerability exists, and why are there no other XSS vulnerabilties at other places!
+Checkout branch ui (git cechkout ui), make a clean install, and run the application. Navigate to your browser, and enter the url localhost:8080! You should see a page listing the movies in the database. There is also a page accessible from the menu for adding new movies to the database. Find an XSS vulnerability in one of these pages!  
+When found, check the source-code.  
+What type of XSS is this?  
+Discuss why this vulnerability exists, and why are there no other XSS vulnerabilties at other places!  
 Fix the vulnerability!
