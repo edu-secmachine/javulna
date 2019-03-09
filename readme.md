@@ -13,6 +13,7 @@
      1. [Exercise 6 - Serialization vulnerability](#Exercise_6)
      1. [Exercise 7- Xml handling](#Exercise_7)
      1. [Exercise  8 – attack The LDAP](#Exercise_8)
+     1. [Exercise  9 – XSS](#Exercise_9)
 
 <a name="Introduction"></a>
 ## Introduction 
@@ -231,7 +232,7 @@ Once you are logged in you can create movies in the database. You can  create a 
 <a name="Exercise_8"></a>
 ### Exercise  8 – attack The LDAP
 **Short Description**
-The application contains a simpel service which enables users to find what data is stored about them in an LDAP directory. In order to obtain the data users have to provide their username and password. Can you get users data without knowing their passwords?
+The application contains a simple service which enables users to find what data is stored about them in an LDAP directory. In order to obtain the data users have to provide their username and password. Can you get users data without knowing their passwords?
 
 **Service endpoint**
 
@@ -261,3 +262,15 @@ Can you get a specific user's data (e.g. uid="kriszta")?
 Can you get data of a user whose name starts with "a"?  
 Could you somehow get all user's data from LDAP?  
 Examine the source code, find and fix the vulnerability!
+
+<a name="Exercise_9"></a>
+### Exercise  9 – XSS
+**Short Description**
+On branch ui there is an application which contains two pages. Alas one of them suffers from XSS vulnerability. Find it and fix it!
+
+**Detailed description**  
+Checkout branch ui (git cechkout ui), make a clean install, and run the application. Navigate to your browser, and enter the url localhost:8080! You should see a page listing the movies in the database. There is also a page accessible from the menu for adding new movies to the database. Find an XSS vulnerability in one of these pages! 
+When found, check the source-code.
+What type of XSS is this?
+Discuss why this vulnerability exists, and why are there no other XSS vulnerabilties at other places!
+Fix the vulnerability!
