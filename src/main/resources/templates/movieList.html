@@ -15,19 +15,7 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container">
-            <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.imdb.com/" target="_blank">Imdb</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a>
-                    </li>
-                </ul>
-            </nav>
+            <nav data-th-replace="menu::menu"></nav>
 
             <div id="bcDiv">
                 <h2>Filmek az adatbázisban</h2>

@@ -85,6 +85,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/rest/movie/**", "/movies", "/", "/webjars/**", "/js/**").permitAll()
                 .antMatchers(HttpMethod.PUT, "/rest/user/**").permitAll()
+                .antMatchers("/addMovie").permitAll()
                 .anyRequest().authenticated();
     }
 

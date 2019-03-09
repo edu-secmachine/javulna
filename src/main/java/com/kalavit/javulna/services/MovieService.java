@@ -14,6 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.dozer.DozerBeanMapper;
@@ -23,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -45,6 +49,9 @@ public class MovieService {
 
     @Autowired
     private DozerBeanMapper beanMapper;
+    
+    @PersistenceContext
+    EntityManager em;
 
     public List<MovieDto> findAllMovies() {
         List<Movie> allMovies = movieAutoDao.findAll();
@@ -126,6 +133,14 @@ public class MovieService {
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
+    }
+    
+    @Transactional
+    public String createMovie(MovieDto movieDto){
+        Movie movie = beanMapper.map(movieDto, Movie.class);
+        movie.setId(UUID.randomUUID().toString());
+        em.persist(movie);
+        return movie.getId();
     }
 
     private String getText(Element el, String tagName) {

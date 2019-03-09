@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>List of movies in the database</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/js/javulna.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav data-th-replace="menu::menu"></nav>
+
+            <h2>Film hozzáadása az adatbázishoz</h2>
+            <form data-th-action="@{/addMovie}" method="POST" data-th-object="${movie}">
+                <div class="form-group">
+                    <label for="title">Cím</label>
+                    <input data-th-field="*{title}" class="form-control" id="title"/>
+                </div>
+                <div class="form-group">
+                    <label for="desc">Leírás</label>
+                    <textarea data-th-field="*{description}" class="form-control" id="desc"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="genre">Műfaj</label>
+                    <input data-th-field="*{genre}" id="genre" class="form-control"/>
+                </div>
+                <button  type="submit" class="btn btn-primary" >Hozzáad</button>
+            </form>
+        </div>
+    </body>
+</html>
+S
