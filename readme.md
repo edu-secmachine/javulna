@@ -43,7 +43,8 @@ Alternatively you can run (and debug) the project from your preferred IDE by sim
 
 <a name="Postman"></a>
 ## Accessing the API via Postman 
-Javulna in itself does not contain any user interface (except a default login page and an empty index.html). It is a RESTfull application accepting http requests and responding JSON strings. In the doc folder you can find a Postman collection export. We suggest you to install Postman on your device and import this collection, since it helps you a lot with starting the exercises.
+Javulna in itself does not contain any user interface (except a default login page and an empty index.html). It is a RESTfull application accepting http requests and responding JSON strings. In the doc folder you can find a Postman collection export. We suggest you to install Postman on your device and import this collection, since it helps you a lot with starting the exercises.  
+After you imported the collection you will have to create an environment within Postman, where you have to specify the ```javulna_host``` environment variable. The value of this variable has to be the host and port of your running javulna app.
 
 <a name="Exercises"></a>
 ## Exercises 
