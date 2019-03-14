@@ -96,7 +96,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.2-beta-5</version>
+                <version>3.1.1</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -107,14 +107,15 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    
                 </configuration>
-                <executions>
+                <executions>                   
                     <execution>
                         <id>assemble-all</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
-                        </goals>
+                        </goals>                     
                     </execution>
                 </executions>
             </plugin>
