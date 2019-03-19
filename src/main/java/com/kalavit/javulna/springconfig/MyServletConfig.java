@@ -23,7 +23,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class MyServletConfig extends WebMvcConfigurerAdapter {
 
-    public static final String[] ALLOWED_CORS_ORIGINS = {"http://localhost:3000"};
+    public static final String[] ALLOWED_CORS_ORIGINS = {"http://localhost:3000", "http://localhost:4200"};
     public static final String CORS_MAPPNIG = "/**";
     public static final String[] ALLOWED_HEADERS = {"*"};
 
