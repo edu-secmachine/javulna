@@ -87,22 +87,6 @@ public class MovieService {
             sb.append(" and ");
         }
     }
-    
-    public Movie saveMovieFromXml(String xml){
-        try {
-            Movie m = new Movie();
-            DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document doc = db.parse(new ByteArrayInputStream(xml.getBytes("UTF-8")));
-            Element root = doc.getDocumentElement();
-            m.setTitle(getText(root, "title"));
-            m.setDescription(getText(root, "description"));
-            m.setGenre(getText(root, "genre"));
-            movieAutoDao.save(m);
-            return m;
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        } 
-    }
 
     private String getText(Element el, String tagName) {
         NodeList nl = el.getElementsByTagName(tagName);

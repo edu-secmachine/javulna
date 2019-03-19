@@ -39,13 +39,6 @@ public class MovieController {
         return m;
     }
     
-    @PostMapping("rest/moviexml")
-    public Movie createMovie(
-            @RequestParam(name = "inputxml") String inputXml){
-        Movie m = movieService.saveMovieFromXml(inputXml);
-        return m;
-    }
-    
     @GetMapping("rest/movie")
     public @ResponseBody List<MovieDto> findMovies(
             @RequestParam(required = false) String title, 
