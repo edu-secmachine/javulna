@@ -43,6 +43,12 @@ public class UserController {
         }
     }
     
+    @GetMapping("rest/user/changepwd")
+    public String changePassword(@RequestParam(name = "newpwd") String newPassword){
+        userService.changePassword(newPassword);
+        return "ok";
+    }
+    
     @PostMapping("rest/user")
     public String modifyUser(@RequestBody UserDto user){
         userService.modifyUser(user);

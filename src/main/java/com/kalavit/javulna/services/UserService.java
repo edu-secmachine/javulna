@@ -11,12 +11,15 @@ import com.kalavit.javulna.services.autodao.UserAutoDao;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import org.apache.commons.io.IOUtils;
 import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -38,6 +41,9 @@ public class UserService {
 
     @Autowired
     RemotePasswordChangeService passwordChangeService;
+    
+    @PersistenceContext
+    EntityManager em;
     
     @Autowired
     PasswordEncoder encoder;
@@ -84,6 +90,16 @@ public class UserService {
         }
         return false;
     }
+    
+     @Transactional
+    public boolean changePassword(String newPassword) {
+        User actUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        em.merge(actUser);
+        actUser.setPassword(newPassword);
+        return true;
+    }
+    
+    
 
     private String createXml(String name, String newPassword) {
         try {
