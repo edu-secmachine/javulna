@@ -23,6 +23,8 @@ public class MovieDto {
     private String description;
     @XmlElement
     private String genre;
+    @XmlElement
+    private String imageUrl;
 
     public MovieDto() {
     }
@@ -31,6 +33,7 @@ public class MovieDto {
         this.title = m.getTitle();
         this.genre = m.getGenre();
         this.description = m.getDescription();
+        this.imageUrl = m.getImageUrl();
     }
 
     public MovieDto(String title, String description, String genre) {
@@ -46,6 +49,7 @@ public class MovieDto {
         m.setDescription(description);
         m.setGenre(genre);
         m.setTitle(title);
+        m.setImageUrl(imageUrl);
     }
 
     public String getId() {
@@ -79,6 +83,14 @@ public class MovieDto {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
     
     

@@ -42,7 +42,7 @@ public class MovieService {
     
     public List<MovieDto> findMovie(String title, String description, String genre, String id) {
         int conditions = 0;
-        StringBuilder sql = new StringBuilder("select description, title, genre, id from movie ");
+        StringBuilder sql = new StringBuilder("select description, title, genre, id, imageUrl from movie ");
         if (StringUtils.hasText(title)) {
             appendCondition(sql, conditions);
             conditions++;
@@ -73,6 +73,7 @@ public class MovieService {
                 ret.setTitle(rs.getString("title"));
                 ret.setGenre(rs.getString("genre"));
                 ret.setId(rs.getString("id"));
+                ret.setImageUrl(rs.getString("imageUrl"));
                 return ret;
             }
         });

@@ -20,6 +20,9 @@ public class Movie extends BaseEntity{
     @Column(length=20971520)
     private String description;
     private String genre;
+    
+    @Column(name = "IMAGEURL")
+    private String imageUrl;
 
     public String getTitle() {
         return title;
@@ -43,6 +46,14 @@ public class Movie extends BaseEntity{
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
     
 }
