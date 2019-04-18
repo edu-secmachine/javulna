@@ -94,7 +94,7 @@ public class UserService {
      @Transactional
     public boolean changePassword(String newPassword) {
         User actUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        em.merge(actUser);
+        actUser = em.merge(actUser);
         actUser.setPassword(newPassword);
         return true;
     }
