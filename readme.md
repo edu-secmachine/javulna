@@ -90,7 +90,7 @@ Use the login request in the Javulna collection (Postman will automatically subm
 The application contains a password change functionality. Abuse it to change another user's password!
 
 **Service endpoint**
-*Request Method*: GET  
+*Request Method*: POST  
 *URL*: /rest/user/password?user=Yoda&oldPassword=&lt;old_password&gt;&newPassword=&lt;new_password&gt;  
 *Response*:  Ok or Not ok  
 
