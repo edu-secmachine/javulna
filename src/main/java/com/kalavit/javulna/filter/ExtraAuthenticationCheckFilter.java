@@ -37,8 +37,7 @@ public class ExtraAuthenticationCheckFilter implements Filter {
     }
 
     @Override
-    
-    //Add another layer of security accordgin to spec 4.5.6
+    //Add another layer of security according to spec 4.5.6
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (request instanceof HttpServletRequest) {
             HttpServletRequest req = (HttpServletRequest) request;
