@@ -2,8 +2,14 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ * 
+ * I added a fuzz target using the Fuzzed Data Provider used with Jazzer
+ * 
  */
 package com.kalavit.javulna.services;
+
+// necessary to further process the byte array passed from the fuzzer, for example to extract multiple values or convert the input into a valid java.lang.String 
+import com.code_intelligence.jazzer.api.FuzzedDataProvider;
 
 import com.kalavit.javulna.model.User;
 import com.kalavit.javulna.services.autodao.UserAutoDao;
@@ -30,6 +36,7 @@ public class RemotePasswordChangeService {
     @Autowired
     private UserAutoDao uDao;
     
+    
     @Transactional
     public boolean changePassword(String psChangeXml) {
         try {
@@ -50,5 +57,6 @@ public class RemotePasswordChangeService {
         } 
         
     }
+    
     
 }
