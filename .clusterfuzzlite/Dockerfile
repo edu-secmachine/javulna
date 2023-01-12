@@ -12,5 +12,4 @@ WORKDIR $SRC/javulna                     # Working directory for build.sh.
 
 COPY ./.clusterfuzzlite/build.sh $SRC/           # Copy build.sh into $SRC dir.
 #RUN mvn clean install
-
 #RUN java -jar target/javulna-1.0-SNAPSHOT.jar --server.port=8089
