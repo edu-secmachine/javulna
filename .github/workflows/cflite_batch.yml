@@ -19,7 +19,7 @@ jobs:
       id: build
       uses: google/clusterfuzzlite/actions/build_fuzzers@v1
       with:
-        language: c++ # Change this to the language you are fuzzing.
+        language: jvm # Change this to the language you are fuzzing.
         sanitizer: ${{ matrix.sanitizer }}
     - name: Run Fuzzers (${{ matrix.sanitizer }})
       id: run
