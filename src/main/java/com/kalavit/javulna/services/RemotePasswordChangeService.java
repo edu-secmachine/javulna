@@ -8,9 +8,6 @@
  */
 package com.kalavit.javulna.services;
 
-// necessary to further process the byte array passed from the fuzzer, for example to extract multiple values or convert the input into a valid java.lang.String 
-import com.code_intelligence.jazzer.api.FuzzedDataProvider;
-
 import com.kalavit.javulna.model.User;
 import com.kalavit.javulna.services.autodao.UserAutoDao;
 import java.io.StringReader;
