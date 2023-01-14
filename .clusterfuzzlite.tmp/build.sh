@@ -1,5 +1,3 @@
-#!/bin/bash -eu
-
 # Step 1: Build the project
 
 # Build the project .jar as usual, e.g. using Maven.
